@@ -234,7 +234,8 @@ public class PlanetGravity : MonoBehaviour
         setPlanetProperty();
 
         //If there's a SOI change during timewarp we must be safe and exit timewarp
-        //Code HAS to be there 
+        //Code HAS to be there
+        //Even tho I hate the fact it's here 
 
         //For now, unpossessed rocket won't transfer
         //Probably just need to update everyone velocity if a rocket switches of planet but will need more thought
@@ -265,8 +266,6 @@ public class PlanetGravity : MonoBehaviour
                     storedVelocity -= new Vector2(velocity.x, velocity.y);
                     GetComponent<RocketPath>().CalculateParameters();
                     return;
-
-
                 }
             }
 
@@ -394,9 +393,6 @@ public class PlanetGravity : MonoBehaviour
 
     void setPlanetProperty()
     {
-        // Define the buffer zone for SOI transitions
-        const double earthBuffer = 500000.0;
-        const double moonBuffer = 1000.0;
 
         MoonScript moonScript = FindObjectOfType<MoonScript>();
         EarthScript earthScript = FindObjectOfType<EarthScript>();
@@ -412,16 +408,15 @@ public class PlanetGravity : MonoBehaviour
         double distanceToEarth = Math.Sqrt(Math.Pow(rb.position.x - earthPosition.Item1, 2) + Math.Pow(rb.position.y - earthPosition.Item2, 2));
         double distanceToSun = Math.Sqrt(Math.Pow(rb.position.x - sunPosition.Item1, 2) + Math.Pow(rb.position.y - sunPosition.Item2, 2));
 
-        // Determine the new SOI based on distances and buffer zones
         GameObject newSOIPlanet = null;
-        if (distanceToMoon < SolarSystemManager.moonSOI - moonBuffer)
+        if (distanceToMoon < SolarSystemManager.moonSOI)
         {
             newSOIPlanet = moonScript.gameObject;
         }else if(distanceToEarth < SolarSystemManager.earthSOI)
         {
             newSOIPlanet = earthScript.gameObject;
         }
-        else if (distanceToEarth > SolarSystemManager.earthSOI + earthBuffer)
+        else if (distanceToEarth > SolarSystemManager.earthSOI)
         {
             newSOIPlanet = sunScript.gameObject;
         }else if(distanceToEarth < SolarSystemManager.earthSOI)

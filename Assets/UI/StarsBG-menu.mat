@@ -40,5 +40,5 @@ Material:
     - _Scale2: 245.99
     - _Uniformity: 16
     m_Colors:
-    - _Offset: {r: 0.010954161, g: 0.002190833, b: 0, a: 0}
+    - _Offset: {r: 0.008949391, g: 0.0017898782, b: 0, a: 0}
   m_BuildTextureStacks: []
