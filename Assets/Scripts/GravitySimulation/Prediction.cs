@@ -584,7 +584,6 @@ public class Prediction : MonoBehaviour
         double timeStep = (time-startTime)/500;
         double targetTime = time;
         time = startTime;
-        int k = 0;
 
         while (time <= targetTime)
         {
@@ -594,7 +593,6 @@ public class Prediction : MonoBehaviour
             H = H + ((M - e * Math.Sinh(H) + H) / (e * Math.Cosh(H) - 1));
 
             time += timeStep;
-            k++;
         }
 
         //print("This is H" + H + " this is Ho" + Ho);
