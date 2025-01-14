@@ -308,20 +308,23 @@ public class RocketAssemblerManager : MonoBehaviour
         foreach (AttachPoint attachPoint in attachPoints)
         {
             //Determine if the decoupler is connected to the top or bottom to know how it will detach
-            if (attachPoint.relativeOrientation == "top")
+
+            if (attachPoint.isConnected == true)
             {
-                if (attachPoint.isConnected == true)
-                {
+                if (attachPoint.relativeOrientation == "top")
+            {
+
                     topConnected = true;
-                }
+                
             }
             if (attachPoint.relativeOrientation == "bottom")
             {
-                if (attachPoint.isConnected == true)
-                {
+
                     bottomConnected = true;
-                }
+                
+            }    
             }
+            
         }
 
         if (topConnected == true)
