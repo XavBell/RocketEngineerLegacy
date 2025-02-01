@@ -81,7 +81,8 @@ public class FuelConsumerComponent : MonoBehaviour
     //Amount in kg
     public bool propellantSufficient(float amount, Propellants propellants)
     {
-        float oxidizerQty = amount * propellants.oxidizerToFuelRatio;
+        float ratio = propellants.oxidizerToFuelRatio;
+        float oxidizerQty = amount * (ratio / (1 + ratio));
         float fuelQty = amount - oxidizerQty;
 
         float oxidizerAvailable = 0;

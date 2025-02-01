@@ -54,6 +54,6 @@ Material:
     - _Gradient_Offset: 0
     - _Overlay: 0.27
     m_Colors:
-    - _LightPos: {r: -298899.94, g: -25162.293, b: 0, a: 0}
+    - _LightPos: {r: -105487.4, g: 271341.56, b: 0, a: 0}
     - _MinMaxLight: {r: 0.15, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
